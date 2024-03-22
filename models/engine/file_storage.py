@@ -1,7 +1,7 @@
 #!usr/bin/python3
 import json
 from ..base_model import BaseModel
-
+from models.user import User
 """
 Storage File
 """
@@ -27,7 +27,7 @@ class FileStorage:
         """Serializes to the JSON file"""
         with open(FileStorage.__file_path, 'w') as file:
             json.dump({
-                key: value.to_dict()
+                key: value.to_dict() if not isinstance(value, User) else User(**value.to_dict())
                 for key, value in FileStorage.__objects.items()}, file)
 
     def reload(self):
@@ -35,7 +35,7 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, 'r') as file:
                 FileStorage.__objects = {
-                        key: BaseModel(**value)
+                        key: BaseModel(**value) if not 'User' in key else User(**value)
                         for key, value in json.load(file).items()}
         except FileNotFoundError:
             pass
