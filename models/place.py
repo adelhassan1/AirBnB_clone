@@ -1,4 +1,4 @@
-$!/usr/bin/python
+#!/usr/bin/python
 from models.base_model import BaseModel
 class Place(BaseModel):
     city_id = ""
