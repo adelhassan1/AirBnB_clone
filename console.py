@@ -100,32 +100,28 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-    def update(class_name, id, attribute_name, attribute_value):
-        if not class_name:
+    def do_update(self, line):
+        """Updates an instance: name and id"""
+        if not line:
             print("** class name missing **")
             return
-        if class_name not in globals():
+        args = line.split()
+        if args[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        if not id:
+
+        if len(args) == 1:
             print("** instance id missing **")
-            return
-        instance = globals()[class_name].get(id)
-        if instance is None:
-            print("** no instance found **")
-            return
-        if not attribute_name:
+        elif len(args) == 2:
             print("** attribute name missing **")
-            return
-        if attribute_value is None:
+        elif len(args) == 3:
             print("** value missing **")
-            return
-        if isinstance (attribute_value, str):
-            instance.__dict__[attribute_name] = attribute_value
-        elif isinstance (attribute_value, int):
-            instance.__dict__[attribute_name] = int(attribute_value)
-        elif isinstance (attribute_value, float):
-            instance.__dict__[attribute_name] = float(attribute_value)
-        instance.save()
+        elif ("{}.{}".format(args[0], args[1]) not in storage.all().keys()):
+            print("** class doesn't exist **")
+        else:
+            setattr(args[0], args[2], args[3])
+
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
