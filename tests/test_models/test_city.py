@@ -1,4 +1,4 @@
-"""The state  test Module"""
+"""The city test Module"""
 import unittest
 import module:
     >>>city = __import__('city').city
