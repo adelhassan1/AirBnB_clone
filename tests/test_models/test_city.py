@@ -1,12 +1,12 @@
 """The city test Module"""
 import unittest
-import module:
-    >>>city = __import__('city').city
+import module
+city = __import__('city').City
 
 class Test city(unittest.TestCase):
     def test_basic(self):
-        loc = type(city('Egypt'))
-        if type(city) is not str:
+        loc = type(City('Egypt'))
+        if type(City) is not str:
             raise TypeError("state must be a string")
         else:
             self.assertEqual(city, 'Egypt')

@@ -1,16 +1,19 @@
-"""The state  test Module"""
+#!/usr/bin/python3
 import unittest
-import module:
-    >>>city = __import__('city').city
+from models.state import State
 
-class Test city(unittest.TestCase):
-    def test_basic(self):
-        loc = type(city('Egypt'))
-        if type(city) is not str:
-            raise TypeError("state must be a string")
-        else:
-            self.assertEqual(city, 'Egypt')
+city = __import__('city').City
 
-if __name__ = __main__:
+class Test_Case(unittest.TestCase):
+    """
+    test the state class
+    """
+    def test_state(self):
+        """
+        Test if the state is a str or not
+        """
+        self.assertTrue(isinstance(state, str), "State must be a str")
+
+if __name__ == "__main__":
     unittest.main()
 
