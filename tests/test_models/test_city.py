@@ -1,20 +1,19 @@
 """The city test Module"""
 import unittest
-import module
-city = __import__('city').City
+from models.city import City
 
-class Test city(unittest.TestCase):
-    def test_basic(self):
-        loc = type(City('Egypt'))
-        if type(City) is not str:
-            raise TypeError("state must be a string")
-        else:
-            self.assertEqual(city, 'Egypt')
-        num = type(state_id('246c227a-d5c1-403d-9bc7-6a47bb9f0f68'))
-        if type(num) is not int:
-            rase TypeError("state_id must be an int")
-        else:
-            self.assertEqual(num, '246c227a-d5c1-403d-9bc7-6a47bb9f0f68')
+
+class Test_city(unittest.TestCase):
+    def test_state_id(self):
+        """
+        check if the state_id is a str or not
+        """
+        self.assertTrue(isinstance(state_id, str), "State_id must be a str")
+    def test_name(self):
+        """
+        check if the name is a str or not
+        """
+        self.assertTrue(isinstance(name, str), "name must be a str")
 if __name__ = __main__:
     unittest.main()
 

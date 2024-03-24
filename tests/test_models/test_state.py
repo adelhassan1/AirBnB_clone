@@ -1,8 +1,7 @@
 #!/usr/bin/python3
+"""the state test"""
 import unittest
 from models.state import State
-
-city = __import__('city').City
 
 class Test_Case(unittest.TestCase):
     """
